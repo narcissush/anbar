@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 public class SaveButtonControl implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent event) {
-//        System.out.println("save button clicked");
+       System.out.println("save button clicked");
 
     }
 }

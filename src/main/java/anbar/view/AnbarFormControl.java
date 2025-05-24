@@ -3,21 +3,20 @@ package anbar.view;
 import anbar.model.Brand;
 import anbar.model.Os;
 import anbar.model.Product;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 @Data
 @NoArgsConstructor
+
 
 public class AnbarFormControl implements Initializable {
     private Os os;
@@ -33,15 +32,19 @@ public class AnbarFormControl implements Initializable {
     @FXML
     private RadioButton androidRbtn;
     @FXML
-    private DatePicker datePicker;
+    private DatePicker dataPick;
     @FXML
-    private CheckBox hasCharger,hasHandsFree;
+    private CheckBox chargerChk, handsfreeChk;
     @FXML
     private TextField countTxt;
     @FXML
     private  TextField priceTxt;
     @FXML
     private Button saveBtn;
+
+    private List<Product> productsList;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         for(Brand brand : Brand.values()){
@@ -56,30 +59,34 @@ public class AnbarFormControl implements Initializable {
         else{
             os=Os.IOS;
         }
-        //datePicker.setValue(LocalDate.now());
+        dataPick.setValue(LocalDate.now());
 
 
 
 
-        saveBtn.setOnAction((Event) ->
+        saveBtn.setOnAction((event) ->
         {
             Product product =
                     Product
                             .builder()
-                            .id(Integer.parseInt(idTxt.getText()))
+                            .id(12)
                             .name(nameTxt.getText())
                             .brand(brandCmb.getSelectionModel().getSelectedItem())
                             .os(os)
-                           // .date(datePicker.getValue())
-                            .hasCharger(hasCharger.isSelected())
-                            .hasHandsfree(hasHandsFree.isSelected())
+                            .dataPick(dataPick.getValue())
+                            .hasCharger(chargerChk.isSelected())
+                            .hasHandsfree(handsfreeChk.isSelected())
                             .count(Integer.parseInt(countTxt.getText()))
                             .price(Integer.parseInt(priceTxt.getText()))
 
                             .build();
-            System.out.println(product);
+            productsList.add(product);
+            System.out.println(productsList);
         });
 
 
 
-}}
+}
+
+
+}

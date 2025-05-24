@@ -18,10 +18,9 @@ public class Product {
     private String name;
     private Brand brand;
     private Os os;
-    private LocalDate date;
     private boolean hasCharger;
     private boolean hasHandsfree;
-    private LocalDate productDate;
+    private LocalDate dataPick;
     private int count;
     private int price;
 

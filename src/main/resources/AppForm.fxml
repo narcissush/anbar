@@ -69,7 +69,7 @@
             <Button fx:id="saveBtn" mnemonicParsing="false" text="ذخیره" GridPane.columnIndex="1" GridPane.rowIndex="8" />
          </children>
       </GridPane>
-      <TableView layoutX="24.0" layoutY="39.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="284.0" prefWidth="327.0">
+      <TableView fx:id="tableView" layoutX="24.0" layoutY="39.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="284.0" prefWidth="327.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
