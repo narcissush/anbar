@@ -6,20 +6,19 @@ import anbar.model.Product;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-@Data
-@NoArgsConstructor
+
 
 
 public class AnbarFormControl implements Initializable {
-    private Os os;
+    private Os osProduct;
 
     @FXML
     private TextField idTxt;
@@ -42,7 +41,7 @@ public class AnbarFormControl implements Initializable {
     @FXML
     private Button saveBtn;
 
-    private List<Product> productsList;
+    private List<Product> productsList = new ArrayList<>();
 
 
     @Override
@@ -50,29 +49,17 @@ public class AnbarFormControl implements Initializable {
         for(Brand brand : Brand.values()){
             brandCmb.getItems().add(brand);
         }
-        brandCmb.getSelectionModel().select(Brand.SAMSUNG);
-
-        iosRbtn.setSelected(true);
-        if (androidRbtn.isSelected()){
-            os=Os.ANDROID;
-        }
-        else{
-            os=Os.IOS;
-        }
-        dataPick.setValue(LocalDate.now());
-
-
-
+        resetForm();
 
         saveBtn.setOnAction((event) ->
         {
             Product product =
                     Product
                             .builder()
-                            .id(12)
+                            .id(Integer.parseInt(idTxt.getText()))
                             .name(nameTxt.getText())
                             .brand(brandCmb.getSelectionModel().getSelectedItem())
-                            .os(os)
+                            .os(osProduct)
                             .dataPick(dataPick.getValue())
                             .hasCharger(chargerChk.isSelected())
                             .hasHandsfree(handsfreeChk.isSelected())
@@ -80,13 +67,37 @@ public class AnbarFormControl implements Initializable {
                             .price(Integer.parseInt(priceTxt.getText()))
 
                             .build();
+            if (androidRbtn.isSelected()){
+                osProduct =Os.ANDROID;
+            }
+            else{
+                osProduct =Os.IOS;
+            }
+
             productsList.add(product);
+            resetForm();
             System.out.println(productsList);
         });
 
 
 
 }
+    public void resetForm(){
 
+        idTxt.setText(String.valueOf(productsList.size()+1));
+        nameTxt.clear();
+        countTxt.clear();
+        priceTxt.clear();
+        brandCmb.getSelectionModel().select(Brand.SAMSUNG);
+        iosRbtn.setSelected(true);
+        chargerChk.setSelected(true);
+        dataPick.setValue(LocalDate.now());
+        if (androidRbtn.isSelected()){
+            osProduct =Os.ANDROID;
+        }
+        else{
+            osProduct =Os.IOS;
+        }
+    }
 
 }

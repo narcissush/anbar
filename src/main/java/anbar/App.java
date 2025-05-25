@@ -6,13 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.util.Objects;
-
-@NoArgsConstructor
-@Data
 
 public class App extends Application {
     @Override

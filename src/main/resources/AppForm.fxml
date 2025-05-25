@@ -43,7 +43,7 @@
             <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" text="تاریخ تولید" GridPane.rowIndex="4" />
             <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" text="متعلقات" GridPane.rowIndex="5" />
             <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" text="تعداد موجودی" GridPane.rowIndex="6" />
-            <TextField fx:id="idtxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" />
+            <TextField fx:id="idTxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" />
             <TextField fx:id="nameTxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="brandCmb" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
